@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Nueva Orden</title>
+</head>
+<body>
+    <div class="container-fluid principal" style="display:block;">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="adminListOrder.html">
+                      <i class="fa-solid fa-house"></i>
+                      Nueva orden
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="Employees.html">
+                    <i class="fa-solid fa-user"></i>
+                    Ordenes
+                    </a>
+                  </li>
+                </ul>
+                <div>
+                  <a class="btn btn-danger" href="login.html">
+                    <i class="fa-solid fa-power-off"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <div class="secondary">
+        <div class="btn-types row">
+                <div class="col">
+                    <button class="btn-type" data-bs-toggle="modal" data-bs-target="#school">Escuela</button>
+                    <div class="modal fade" id="school" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Nueva orden: Escuela</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#">
+                                    <div class="input-group mb-3">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Cliente</span>
+                                      <select name="school" id="school" class="form-control">
+                                        <option value="null" hidden selected>Selecciona una escuela...</option>
+                                        <option value="01">María del carmen</option>
+                                        <option value="02">Colegio Ana Froid</option>
+                                      </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Teléfono</span>
+                                      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                      <input type="text" class="form-control"aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text">Descripción</span>
+                                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text">Comentarios</span>
+                                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Piezas</span>
+                                      <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                      <span class="input-group-text">Precio</span>
+                                      <input type="number" class="form-control" aria-label="Server">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text">Anticipo</span>
+                                      <input type="number" class="form-control" aria-label="Server">
+                                      <span class="input-group-text">Total</span>
+                                      <input type="number" disabled class="form-control" aria-label="Server">
+                                    </div>
+                                  </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                              <button type="button" class="btn btn-primary">Aceptar</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"><button class="btn-type" data-bs-toggle="modal" data-bs-target="#taller">Taller</button>
+                    <div class="modal fade" id="taller" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="staticBackdropLabel">Nueva orden: Taller</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#">
+                                    <div class="input-group mb-3">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Cliente</span>
+                                      <select name="school" id="school" class="form-control">
+                                        <option value="null" hidden selected>Selecciona taller...</option>
+                                        <option value="01">Acatlipa 21</option>
+                                        <option value="02">Xochitepec 12</option>
+                                      </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Teléfono</span>
+                                      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                      <input type="text" class="form-control"aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text">Descripción</span>
+                                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text">Comentarios</span>
+                                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon1">Piezas</span>
+                                      <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                      <span class="input-group-text">Precio</span>
+                                      <input type="number" class="form-control" aria-label="Server">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text">Anticipo</span>
+                                      <input type="number" class="form-control" aria-label="Server">
+                                      <span class="input-group-text">Total</span>
+                                      <input type="number" disabled class="form-control" aria-label="Server">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                              <button type="button" class="btn btn-primary">Aceptar</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"><button class="btn-type">Persona</button></div>
+        </div>
+    </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/18b617c855.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

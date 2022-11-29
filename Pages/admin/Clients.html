@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="principal" style="display: block;">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="adminListOrder.html">
+                          <i class="fa-solid fa-house"></i>
+                          Inicio
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="Employees.html">
+                        <i class="fa-solid fa-user"></i>
+                        Empleados
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="Clients.html">
+                          <i class="fa-solid fa-briefcase"></i>
+                          Clientes
+                        </a>
+                      </li>
+                    </ul>
+                    <div>
+                      <a class="btn btn-danger" href="login.html">
+                        <i class="fa-solid fa-power-off"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </nav>
+        </header>
+        <div class="secondary">
+            <div class="row list-header">
+                <div class="input-group">
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCustomer">Nuevo</button>
+                </div>
+                <div class="modal fade" id="newCustomer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="#">
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Nombre</span>
+                              <input type="text" class="form-control" aria-label="Server">
+                            </div>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Telefóno</span>
+                              <input type="text" class="form-control" aria-label="Server">
+                            </div>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Dirección</span>
+                              <input type="number" class="form-control" aria-label="Server">
+                              <span class="input-group-text">Tipo</span>
+                              <select name="gender" class="form-control" id="gender">
+                                <option value="h" class="form-control">Escuela</option>
+                                <option value="m" class="form-control">Taller</option>
+                              </select>
+                            </div>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Saldo</span>
+                              <input type="number" class="form-control" aria-label="Server">
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="button" class="btn btn-primary">Aceptar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <table class="table table-striped orders-table">
+                <thead>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col" colspan="3">Dirección</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Saldo</th>
+                    <th scope="col"></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><input type="text" class="form-control" name="name" value="Pedro"></td>
+                        <td><input type="text" class="form-control" name="phone" value="7774991587"></td>
+                        <td colspan="3"><input type="text" class="form-control" name="address" value="Avenida insurgentes #3 col centro Otzolotepec"></td>
+                        <td><select name="type" class="form-control">
+                          <option value="escuela">Escuela</option>
+                          <option value="taller">Taller</option>
+                      </select></td>
+                        <td><input type="number" class="form-control" name="balance" value="2000"></td>
+                        <td><button class="btn btn-primary">Actualizar</button></td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+      <script src="https://kit.fontawesome.com/18b617c855.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
