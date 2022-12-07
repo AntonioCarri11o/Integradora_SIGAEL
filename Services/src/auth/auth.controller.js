@@ -1,10 +1,11 @@
 const { Router } = require('express');
 const { validateError } = require('../utils/functions.js');
 const { login, login_Admin } = require('../auth/auth.gateway.js');
+const {response} = require('express');
 
 //Empleados
 
-const signin = async (req, res = Response) => { 
+const signin = async (req, res = response) => { 
     try {
         const { username, password } = req.body; // <-- Parametros
         const token = await login({ username, password }); // <-- usa nuestra funcion token para generar un token valido    
@@ -19,7 +20,7 @@ const signin = async (req, res = Response) => {
 
 
 //Admin
-const signAdmin = async (req, res = Response) => {
+const signAdmin = async (req, res = response) => {
     try{
         const{password} = req.body; // <-- Parametros del login del admin
         const token = await login_Admin({password});
