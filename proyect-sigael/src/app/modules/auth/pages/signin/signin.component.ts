@@ -11,7 +11,7 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class SigninComponent   {
   user: UserLogin = {
-    email: '',
+    username: '',
     password: '',
   };
 
@@ -34,8 +34,11 @@ export class SigninComponent   {
   }
 
   signin() {
-
     this.AuthService.signin(this.user);
     this.generalServices.isLogged = true;
   }
+  toAdmin(){
+    
+  }
+
 }

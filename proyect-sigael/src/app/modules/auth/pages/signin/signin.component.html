@@ -54,10 +54,29 @@
 <div class="container-fluid principal">
   <mat-card class="login-card">
     <mat-card-header class="row mt-1 ">
-      <h2 style="text-align:center;">Admin</h2>
+      <h2 style="text-align:center;">Iniciar sesión</h2>
     </mat-card-header>
     <form #loginForm="ngForm" novalidate (submit)="signin()">
       <mat-card-content>
+        <div class="col-12 mb-2">
+          <mat-form-field appearance="fill" class="w-50">
+            <mat-label>Usuario</mat-label>
+            <input
+              type="text"
+              matInput
+              required
+              name="username"
+              #username="ngModel"
+              [(ngModel)]="user.username"
+              placeholder="Nombre de usuario"
+            />
+            <mat-error *ngIf="password.invalid">
+              <span *ngIf="password.errors?.['required']">
+                Campo obligatorio
+              </span>
+            </mat-error>
+          </mat-form-field>
+        </div>
         <div class="col-12 mb-2">
           <mat-form-field appearance="fill" class="w-50">
             <mat-label>Contraseña</mat-label>
@@ -88,6 +107,8 @@
           >
             Log in
           </button>
+
+
         </div>
       </mat-card-actions>
       <mat-card-footer *ngIf="isLoading" >
@@ -96,5 +117,5 @@
   </form>
 
   </mat-card>
-  
+
 </div>

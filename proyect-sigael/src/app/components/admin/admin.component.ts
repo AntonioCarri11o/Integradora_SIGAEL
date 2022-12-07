@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
-
-  constructor() { }
+  //role="ADMIN"
+  constructor() {
+    ///Token.role === role ?
+  }
 
   ngOnInit(): void {
   }

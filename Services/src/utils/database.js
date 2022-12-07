@@ -28,7 +28,7 @@ const client = db.createPool({
 
 const query = (query,params) => {
     return new Promise((resolve,reject)=>{
-        client.getConnection((err,conn)=>{
+        client.getConnection((err,client)=>{
             if(err) reject(err);
             client.query(query,params,(err,rows)=>{
                 if(err) reject (err);
