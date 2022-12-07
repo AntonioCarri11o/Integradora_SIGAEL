@@ -7,6 +7,7 @@ import { GeneralService } from 'src/app/services/general.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
+  styleUrls:['./styles.css'],
 })
 export class SigninComponent   {
   user: UserLogin = {

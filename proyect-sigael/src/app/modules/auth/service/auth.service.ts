@@ -18,7 +18,7 @@ export class AuthService {
 
   constructor (private readonly http: HttpClient, private router: Router, private generalServices:GeneralService){}
 
-  signin(payload: UserLogin):void{
+  signin(payload: UserLogin){
     this.loading = true;
     //Hacer peticiones
     this.http.post<any>(`${APP_URL}api/auth/`, payload,{

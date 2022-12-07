@@ -28,5 +28,6 @@ export class NavigationComponent{
     logout(){
         localStorage.clear();
         this.loginStateService.setIsLogged=false;
+        this.router.navigateByUrl("/auth")
     }
 }

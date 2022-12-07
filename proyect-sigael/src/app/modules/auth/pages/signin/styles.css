@@ -1,0 +1,61 @@
+
+
+    .principal{
+        width: 100%;
+        height: 100%;
+        display:flex;
+    }
+    mat-card{
+        background-color:transparent;
+    }
+    .secondary{
+        width: 95%;
+        margin: 5% auto 0 auto;
+        background-color: #FFF8FE;
+        border: solid 2px #FFC3F6;
+        border-radius: 1em;
+    }
+    
+    .login-card{
+        background-color: #FFF8FE;
+        width: 35%;
+        margin: 10em auto auto auto;
+        padding: 1% 1% 4% 1%;
+    }
+    .login-tittle{
+        width: 100%;
+    }
+    h3{
+        width: 100%;
+        text-align: center;
+    }
+    .btn-login{
+        width: 40%;
+        margin: auto;
+    }
+    .navbar{
+        background-color: #FFF8FE;
+        padding: 1em;
+    }
+    .list-header{
+        width: 100%;
+        display: flex;
+        margin: 1em 0  1em 0;
+    }
+    .right{
+        width: 50%;
+        margin: 0 0 0 auto;
+    }
+    .container-fluid{
+        padding: 0%;
+    }
+    .btn-types{
+        width: 50%;
+        height: 10em;
+        margin: 5% auto 5% auto; 
+    }
+    .btn-type{
+        width: 100%;
+        height: 100%;
+        border-radius: 10%;
+    }
