@@ -4,7 +4,7 @@ const { login, login_Admin } = require('../auth/auth.gateway.js');
 
 //Empleados
 
-const singin = async (req, res = Response) => { 
+const signin = async (req, res = Response) => { 
     try {
         const { username, password } = req.body; // <-- Parametros
         const token = await login({ username, password }); // <-- usa nuestra funcion token para generar un token valido    
@@ -19,7 +19,7 @@ const singin = async (req, res = Response) => {
 
 
 //Admin
-const singAdmin = async (req, res = Response) => {
+const signAdmin = async (req, res = Response) => {
     try{
         const{password} = req.body; // <-- Parametros del login del admin
         const token = await login_Admin({password});
@@ -36,8 +36,8 @@ const singAdmin = async (req, res = Response) => {
 
 const authRouter = Router();
 
-authRouter.post(`/login`, singin);
-authRouter.post(`/login/Ad`,singAdmin);
+authRouter.post(`/login`, signin);
+authRouter.post(`/login/Ad`,signAdmin);
 
 module.exports={
     authRouter

@@ -1,9 +1,21 @@
-const { json }  = require('express')
-const {database} = require ('../utils/database.js');
+const { json }  = require('express');
+const { findAll } = require('../gateways/employee.gateway');
 
-const getEmpleados = async(req,res) => {
-    const result = await database.query('SELECT * FROM employee')
-    res.send(result)
+const {database} = require ('../utils/database.js');
+const { validateError } = require('../utils/functions.js');
+
+const getEmpleados = async(req,res=response) => {
+    try{
+        const result= await findAll();
+        res.status(200).json(result)
+    }catch(err){
+        console.log(err);
+        const message=validateError(err);
+        res.status(400).json({message});
+    }
+    /*const result = await database.query(`SELECT * FROM employee`,[])
+    res.status(200).json(result)
+    */
 }
 const getEmpleadoById = async (req,res) => {
     const [rows] = await database.query('SELECT * FROM employee WHERE id = ?;',[req.params.id])
