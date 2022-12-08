@@ -6,19 +6,25 @@ const {response} = require('express');
 //Empleados
 const login = async(user,res = response) => {
     if(!user.username || !user.password) throw Error('Missing Fields'); //<-- valida que la contra y el usuario no vayan vacios
-    const sql = 'SELECT * FROM employee WHERE username=? and state=\'a\';' // <-- Query para validar que existe
-    const existEmployee = await query(sql,[user.username]); // <-- Manda nuestro Query y los parametros  
-
-    if(validatePassword(user.password,existEmployee[0].password)) // <-- Valida que las contraseñas encajen 
-    return generateToken({ // <-- aqui regresa un token para nuestra session 
-    id:existEmployee[0].id,
-    username: user.username,
-    role: existEmployee[0].role,
-    isLogget:true,
-    });
-    console.log(role)
-    if(!validatePassword(user.password,existEmployee[0].password))
-    return
+    const sql = 'SELECT * FROM employee WHERE username=? and password=? and state=\'a\';' // <-- Query para validar que existe
+    const existEmployee = await query(sql,[user.username,user.password]); // <-- Manda nuestro Query y los parametros  
+    if(existEmployee[0]===undefined){
+        throw Error('Password mismatch')
+    }else{
+        if(validatePassword(user.password,existEmployee[0].password)) 
+        return generateToken({ // <-- aqui regresa un token para nuestra session 
+        id:existEmployee[0].id,
+        username: user.username,
+        role: existEmployee[0].role,
+        isLogget:true,
+        });
+        console.log(role)
+    }
+    //console.log(existEmployee[0]===undefined)
+    //if(existEmployee[0].password===undefined)throw Error('Password mismatch');
+    
+    
+ 
 };
 
 //Admin

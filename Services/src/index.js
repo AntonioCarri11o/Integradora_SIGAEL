@@ -4,7 +4,7 @@ const empleados = require('./routes/employee.routes.js');
 const clientes = require ('./routes/customers.routes.js');
 const pedidos = require ('./routes/orders.routes.js');
 const auth = require('./auth/auth.controller.js');
-const { routerToken } = require('./routes/token.routes.js');
+const token=require('./routes/token.routes')
 
 const app = express(); // < -- usermos el servicio de app
 
@@ -21,7 +21,7 @@ app.use('/api',empleados.routerEmployee);
 app.use('/api',clientes.routerCustomers);
 app.use('/api',pedidos.routerOrders);
 app.use('/api',auth.authRouter);
-app.use('/api',token.routerToken)
+app.use('/api',token.routerToken);
 
 //Arranque de nuestro Server
 app.listen(app.get('port'), () =>{
