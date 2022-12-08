@@ -17,7 +17,6 @@ const signin = async (req, res = response) => {
     }
 };
 
-
 //Admin
 const signAdmin = async (req, res = response) => {
     try{
@@ -30,6 +29,7 @@ const signAdmin = async (req, res = response) => {
         res.status(400).json({message});
     }
 }
+
 
 
 

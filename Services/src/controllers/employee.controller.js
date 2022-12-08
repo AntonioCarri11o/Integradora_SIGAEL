@@ -4,6 +4,7 @@ const { findAll } = require('../gateways/employee.gateway');
 const {database} = require ('../utils/database.js');
 const { validateError } = require('../utils/functions.js');
 
+
 const getEmpleados = async(req,res=response) => {
     try{
         const result= await findAll();
@@ -33,11 +34,16 @@ const getEmpleadoByname = async (req,res) => {
     res.json(rows[0])
 }
 
-
+const returnRole=async(req)=>{
+    return req.token.username
+}
 const createEmpleado = async(req,res) => {
     const {username,password,name,age,phone_number,gender} = req.body
     const [rows] = await database.query('INSERT INTO employee (username,password,name,age,phone_number,gender) VALUES (?,?,?,?,?,?)',[username,password,name,age,phone_number,gender])
-    res.send("El usuario a sido creado Exitosamente Tenga un buen dia");
+    //const getRole=await returnRole(req);
+    console.log(getRole);
+    res.send({username,password,name,age,phone_number,gender});
+    
 }
 
 const UpdateEmpleado = async(req,res) => {

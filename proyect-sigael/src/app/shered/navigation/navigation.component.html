@@ -1,6 +1,12 @@
+
+
+
 <div>
     <div *ngIf="session.logged">
       <mat-sidenav-container class="sidenav-container">
+        <div *ngIf="!tokenAd">
+          hola
+        </div>
         <mat-sidenav
           #drawer
           class="sidenav"
@@ -36,7 +42,6 @@
               </mat-menu>
             </div>
           </mat-toolbar>
-          <!-- Add Content Here -->
           <div class="container-fluid border">
             <div class="row">
               <div class="col">
@@ -50,4 +55,4 @@
         <app-signin></app-signin>
     </div>
   </div>
-  
+-->

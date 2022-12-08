@@ -37,8 +37,5 @@ export class SigninComponent   {
     this.AuthService.signin(this.user);
     this.generalServices.isLogged = true;
   }
-  toAdmin(){
-    
-  }
 
 }

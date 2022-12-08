@@ -14,6 +14,10 @@ export class NavigationComponent{
     get session(){
         return this.loginStateService.isLogged;
     }
+    get tokenAd(){
+        console.log(localStorage.getItem('token.role'))
+        return localStorage.getItem('token')
+    }
     isHandset$:Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
         map((result)=>result.matches),shareReplay()
     );

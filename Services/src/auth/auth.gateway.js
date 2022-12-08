@@ -16,6 +16,7 @@ const login = async(user,res = response) => {
     role: existEmployee[0].role,
     isLogget:true,
     });
+    console.log(role)
     if(!validatePassword(user.password,existEmployee[0].password))
     return
 };
@@ -25,7 +26,6 @@ const login_Admin = async(admin,res = response) => {
     if(!admin.password) throw Error('Missing Fields'); //<-- valida que la contra y el usuario no vayan vacios
     const sql = 'SELECT * FROM admin WHERE password=?;' // <-- Query para validar que existe
     const existAdmin = await query(sql,[admin.password]); // <-- Manda nuestro Query y los parametros  
-
     if(validatePassword(admin.password,existAdmin[0].password)); // <-- Valida que las contraseñas encajen 
     return generateToken({ // <-- aqui regresa un token para nuestra session 
     id:existAdmin[0].id,
