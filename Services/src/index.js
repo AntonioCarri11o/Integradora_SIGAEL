@@ -5,6 +5,7 @@ const clientes = require ('./routes/customers.routes.js');
 const pedidos = require ('./routes/orders.routes.js');
 const auth = require('./auth/auth.controller.js');
 const token=require('./routes/token.routes')
+const cors = require('cors');
 
 const app = express(); // < -- usermos el servicio de app
 
@@ -23,6 +24,9 @@ app.use('/api',pedidos.routerOrders);
 app.use('/api',auth.authRouter);
 app.use('/api',token.routerToken);
 
+
+
+app.use(cors());
 //Arranque de nuestro Server
 app.listen(app.get('port'), () =>{
     console.log(`Server inicializado en el Puerto: ${app.get('port')}`);

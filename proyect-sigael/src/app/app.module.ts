@@ -11,7 +11,12 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/admin/login/login.component';
 import { NavigationComponent } from './shered/navigation/navigation.component';
 import { AuthModule } from './modules/auth/auth.module';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes:Routes=[
+  {path:'admin',component:AdminComponent},
+  {path:'',component:NavigationComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,    
@@ -27,6 +32,7 @@ import { AuthModule } from './modules/auth/auth.module';
     HttpClientModule,
     ...materialModules,
     AuthModule,
+    RouterModule.forRoot(appRoutes)
 
   ],
   exports: [],

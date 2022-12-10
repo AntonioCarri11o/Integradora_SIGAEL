@@ -4,6 +4,7 @@ import { from, Observable } from "rxjs";
 import {map, shareReplay} from "rxjs/operators";
 import { Router } from "@angular/router";
 import {LoginStateService} from "../../services/login-state.service.service";
+import { GetTokenServiceService } from "src/app/services/get-token-service.service";
 
 @Component({
     selector:"app-navigation",
@@ -14,8 +15,14 @@ export class NavigationComponent{
     get session(){
         return this.loginStateService.isLogged;
     }
+    get tokenRole(){
+        return localStorage.getItem('role')==="admin"
+    }
     get tokenAd(){
-        console.log(localStorage.getItem('token.role'))
+        const token=localStorage.getItem('token');
+        //const role=this.getTokenService.getRoleUsername(token!);
+        //console.log(token)
+        //console.log(localStorage.getItem('role'))
         return localStorage.getItem('token')
     }
     isHandset$:Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -24,7 +31,7 @@ export class NavigationComponent{
     constructor(
         private breakpointObserver:BreakpointObserver,
         private router:Router,
-        private loginStateService:LoginStateService
+        private loginStateService:LoginStateService,
     ){
         this.loginStateService.setIsLogged=!!localStorage.getItem("token");
         if(this.loginStateService.setIsLogged) this.router.navigateByUrl("/auth")
@@ -32,6 +39,6 @@ export class NavigationComponent{
     logout(){
         localStorage.clear();
         this.loginStateService.setIsLogged=false;
-        this.router.navigateByUrl("/auth")
+        this.router.navigateByUrl("/")
     }
 }

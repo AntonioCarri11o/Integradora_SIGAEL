@@ -16,10 +16,12 @@ export class GeneralService {
 
   constructor() {
     this.session.logged = !!localStorage.getItem('token');
+    
     this.session.token = localStorage.getItem('token')
       ? localStorage.getItem('token')
+      
       : null;
-    console.log(this.token);
+
   }
 
   get isLogged() {

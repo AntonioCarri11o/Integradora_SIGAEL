@@ -20,7 +20,6 @@ export class AuthService {
   constructor (private readonly http: HttpClient, private router: Router,private loginState:LoginStateService, private generalServices:GeneralService){}
 
   signin(payload: UserLogin){
-    console.log(payload.password,payload.username)
     this.loading = true;
     //Hacer peticiones
     this.http.post<any>(`${APP_URL}api/login`, payload,{
@@ -43,9 +42,21 @@ export class AuthService {
         this.router.navigate(['/']);
         */
         localStorage.setItem("token", response.token);
+        localStorage.setItem("user",payload.username);
+        if(payload.username==="admin"){
+          localStorage.setItem("role","admin")
+        }else{
+          localStorage.setItem("role","employee")
+        }
         this.loading = false;
         this.loginState.setIsLogged = true;
-        this.router.navigateByUrl("/");
+        if(localStorage.getItem("role")==="admin"){
+          this.router.navigateByUrl("/admin");
+        }else{
+          this.router.navigateByUrl("/")
+        }
+        
       });
+      //console.log(this.token)
   }
 }

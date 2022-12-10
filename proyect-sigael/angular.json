@@ -36,7 +36,9 @@
               "./node_modules/bootstrap/dist/css/bootstrap-grid.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -75,7 +77,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "proyect-sigael:build:production"
+              "browserTarget": "proyect-sigael:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "browserTarget": "proyect-sigael:build:development"

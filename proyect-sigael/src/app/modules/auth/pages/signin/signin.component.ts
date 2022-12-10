@@ -3,6 +3,7 @@ import { UserLogin } from '../../types/user';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { GeneralService } from 'src/app/services/general.service';
+import { GetTokenServiceService } from 'src/app/services/get-token-service.service';
 
 @Component({
   selector: 'app-signin',
@@ -21,11 +22,10 @@ export class SigninComponent   {
     return this.AuthService.isLoading;
   }
 
-  constructor(private AuthService: AuthService, private router: Router, private generalServices:GeneralService) {
+  constructor(private TokenService:GetTokenServiceService, private AuthService: AuthService, private router: Router, private generalServices:GeneralService) {
     if (!!localStorage.getItem('token')) {
       this.router.navigate(['']);
-      if (!this.generalServices.isLogged) router.navigateByUrl('/');
-
+      if (!this.generalServices.isLogged) this.router.navigateByUrl('/');
     }
   }
 
@@ -36,6 +36,7 @@ export class SigninComponent   {
   signin() {
     this.AuthService.signin(this.user);
     this.generalServices.isLogged = true;
+    this.router.navigate(['/admin']);
   }
 
 }
