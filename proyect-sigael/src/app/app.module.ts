@@ -12,9 +12,12 @@ import { LoginComponent } from './components/admin/login/login.component';
 import { NavigationComponent } from './shered/navigation/navigation.component';
 import { AuthModule } from './modules/auth/auth.module';
 import { RouterModule, Routes } from '@angular/router';
+import { ListEmployeeComponent } from './components/employee/list-employee/list-employee.component';
+import { AdminNavbarComponent } from './components/admin/admin-navbar/admin-navbar.component';
 
 const appRoutes:Routes=[
   {path:'admin',component:AdminComponent},
+  {path:`admin/listEmployee`, component:ListEmployeeComponent},
   {path:'',component:NavigationComponent}
 ]
 @NgModule({
@@ -25,6 +28,8 @@ const appRoutes:Routes=[
     AdminComponent,
     LoginComponent,
     NavigationComponent,
+    ListEmployeeComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,

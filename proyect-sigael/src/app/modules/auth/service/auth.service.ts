@@ -50,11 +50,7 @@ export class AuthService {
         }
         this.loading = false;
         this.loginState.setIsLogged = true;
-        if(localStorage.getItem("role")==="admin"){
-          this.router.navigateByUrl("/admin");
-        }else{
-          this.router.navigateByUrl("/")
-        }
+
         
       });
       //console.log(this.token)

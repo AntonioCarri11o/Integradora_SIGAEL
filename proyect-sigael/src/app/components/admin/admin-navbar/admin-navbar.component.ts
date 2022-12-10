@@ -1,16 +1,14 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable, shareReplay } from 'rxjs';
 import { LoginStateService } from 'src/app/services/login-state.service.service';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html'
+  selector: 'app-admin-navbar',
+  templateUrl: './admin-navbar.component.html'
 })
-export class AdminComponent implements OnInit {
-  //role="ADMIN"
+export class AdminNavbarComponent implements OnInit {
   isHandset$:Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result)=>result.matches),shareReplay()
 );
@@ -18,9 +16,8 @@ export class AdminComponent implements OnInit {
     private breakpointObserver:BreakpointObserver,
     private router:Router,
     private loginStateService:LoginStateService,
-){
-}
-logout(){
+  ) { }
+  logout(){
     localStorage.clear();
     this.loginStateService.setIsLogged=false;
     this.router.navigateByUrl("/")

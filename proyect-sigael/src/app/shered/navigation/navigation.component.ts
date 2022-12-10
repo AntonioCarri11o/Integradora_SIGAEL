@@ -33,8 +33,6 @@ export class NavigationComponent{
         private router:Router,
         private loginStateService:LoginStateService,
     ){
-        this.loginStateService.setIsLogged=!!localStorage.getItem("token");
-        if(this.loginStateService.setIsLogged) this.router.navigateByUrl("/auth")
     }
     logout(){
         localStorage.clear();

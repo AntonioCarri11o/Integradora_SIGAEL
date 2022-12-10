@@ -1,12 +1,17 @@
 <div>
+  <router-outlet>
     <div *ngIf="session.logged">
       <div *ngIf="tokenRole">
-        <app-admin></app-admin>
+        <app-admin>
+
+        </app-admin>
       </div>
       <div *ngIf="!tokenRole">
         <app-employee></app-employee>
       </div>
     </div>  
+  </router-outlet>
+
     <div *ngIf="!session.logged">
         <app-signin></app-signin>
     </div>
