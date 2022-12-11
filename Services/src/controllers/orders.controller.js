@@ -1,9 +1,9 @@
 const { json } = require ('express');
 const {database} = require ('../utils/database.js');
 
-const getPedidos = async(req,res) => {
-    const result = await database.query('SELECT * FROM orders')
-    res.send(result)
+const getPedidos = async(req,res=Response) => {
+    const [rows] = await database.query('SELECT * FROM orders')
+    res.json(rows)
 }
 const getPedidosById = async (req,res) => {
     const [rows] = await database.query('SELECT * FROM orders WHERE id = ?;',[req.params.id])

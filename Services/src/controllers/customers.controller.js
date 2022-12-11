@@ -2,8 +2,8 @@ const { json } = require ('express');
 const {database} = require ('../utils/database.js');
 
 const getClientes = async(req,res) => {
-    const result = await database.query('SELECT * FROM customer')
-    res.send(result)
+    const [result] = await database.query('SELECT * FROM customer')
+    res.json(result);
 };
 const getClienteById = async (req,res) => {
     const [rows] = await database.query('SELECT * FROM customer WHERE id = ?;',[req.params.id])
