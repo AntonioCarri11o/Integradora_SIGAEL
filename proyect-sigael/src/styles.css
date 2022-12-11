@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url("~bootstrap-icons/font/bootstrap-icons");
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 td{
@@ -16,7 +16,14 @@ tr.trbody:hover{
 .right{
     text-align: right;
     width: 100%;
+    align-content: right;
 }
 .exit{
     background-color: red;
+}
+.bi{
+
+}
+.bi-plus-circle{
+    font-size: larger;
 }

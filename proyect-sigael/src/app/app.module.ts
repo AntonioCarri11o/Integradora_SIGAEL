@@ -19,6 +19,8 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { ListCustomersComponent } from './components/customer/list-customers/list-customers.component';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { UpdateCustomerComponent } from './components/customer/update-customer/update-customer.component';
 
 const appRoutes:Routes=[
   {path:'admin',component:AdminComponent},
@@ -41,6 +43,7 @@ const appRoutes:Routes=[
     CustomerComponent,
     ListCustomersComponent,
     AddCustomerComponent,
+    UpdateCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ const appRoutes:Routes=[
     ...materialModules,
     AuthModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
 
   ],

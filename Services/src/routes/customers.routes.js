@@ -9,8 +9,8 @@ const routerCustomers = Router();
 routerCustomers.get('/clientes',getClientes);
 routerCustomers.get('/clientes/:id',getClienteById);
 routerCustomers.get('/clientes/cliente/:name',getClienteByname);
-routerCustomers.post('/clientes/',[auth,checkRoles(['admin'])],createCliente); // <-- usamos nuestros metodos de autenticacion y de check de Rol
-routerCustomers.put('/clientes/:id',[auth,checkRoles(['admin'])],UpdateCliente);
+routerCustomers.post('/clientes/',createCliente); // <-- usamos nuestros metodos de autenticacion y de check de Rol
+routerCustomers.put('/clientes/',UpdateCliente);
 
 
 module.exports={

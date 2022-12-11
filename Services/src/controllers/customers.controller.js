@@ -24,19 +24,20 @@ const getClienteByname = async (req,res) => {
 const createCliente = async(req,res) => {
     const {name,type,phone_number,address,balance} = req.body
     const [rows] = await database.query('INSERT INTO customer (name,type,phone_number,address,balance) VALUES (?,?,?,?,?)',[name,type,phone_number,address,balance])
-    res.send("!!Cliente Registrado de manera Exitosa!!");
+    const message="!!Cliente Registrado de manera Exitosa!!"
+    res.json({message})
 };
 
 const UpdateCliente = async(req,res) => {
-    const {id} = req.params
-    const {name,type,phone_number,address,balance} = req.body
+    const {id,name,type,phone_number,address,balance} = req.body
     const [result] = await database.query('UPDATE customer SET name=?, type=? ,phone_number=?, address=?, balance=? WHERE id = ?;',
     [name,type,phone_number,address,balance,id])
     if(result.affectedRows === 0){
         res.status(404),json({message:'No encontre a su empleado'})
     }
     const [personal] = ('SELECT * FROM employee WHERE id=?;',[id])
-    res.send("Actualizacion del Cliente Correcta Tenga un Buen Dia <3")
+    const message="Actualizacion del Cliente Correcta Tenga un Buen Dia <3";
+    res.json({message})
 };
 
 const DeleteCliente = async(req,res) => {

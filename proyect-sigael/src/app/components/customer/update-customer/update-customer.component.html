@@ -1,0 +1,44 @@
+
+
+<div class="row">
+    <div mat-dialog-title class="col"><h1>Actualizar cliente</h1></div>
+    <div class="col right"> <button (click)="close()" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button></div>
+  </div>
+  <form #UpdateCustomerForm="ngForm" novalidate (submit)="update()">
+  <div mat-dialog-content>
+    <br>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Nombre</span>
+        <input type="text" matInput required name="name" 
+        #name="ngModel" [(ngModel)]="custom.name" class="form-control" aria-label="Server">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Telefóno</span>
+        <input type="number" matInput required name="phone_number"
+        #phone_number="ngModel" [(ngModel)]="custom.phone_number" class="form-control" aria-label="Server">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Saldo</span>
+        <input type="number" matInput required name="balance" #balance="ngModel" [(ngModel)]="custom.balance" class="form-control" aria-label="Server">
+        <span class="input-group-text">Tipo</span>
+        <select required name="type" 
+        #type="ngModel" [(ngModel)]="custom.type" class="form-control" id="type">
+          <option value="escuela" class="form-control">Escuela</option>
+          <option value="taller" class="form-control">Taller</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Dirección</span>
+        <input type="text" matInput required name="address" #address="ngModel" [(ngModel)]="custom.address" class="form-control" aria-label="Server">          
+      </div>  
+
+  </div>
+
+  <div mat-dialog-actions>
+    <div class="right">
+      <button mat-button class="btn btn-secondary" (click)="close()" >Cancelar</button>
+      <button mat-button class="btn btn-success"  type="submit">Actualizar</button>
+    </div>
+  </div>
+  </form>
+  
