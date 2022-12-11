@@ -1,18 +1,24 @@
+<!--
 <div>
-  <router-outlet>
-    <div *ngIf="session.logged">
-      <div *ngIf="tokenRole">
-        <app-admin>
-
-        </app-admin>
-      </div>
-      <div *ngIf="!tokenRole">
-        <app-employee></app-employee>
-      </div>
-    </div>  
-  </router-outlet>
-
+  <div *ngIf="session.logged">
+    <div *ngIf="tokenRole">
+      <app-admin>
+      </app-admin>
+    </div>
+    
+    <div *ngIf="!tokenRole">
+      <app-employee></app-employee>
+    </div>
+  </div> 
     <div *ngIf="!session.logged">
         <app-signin></app-signin>
     </div>
+</div>
+-->
+<div *ngIf="session.logged">
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="!session.logged">
+  <app-signin></app-signin>
 </div>

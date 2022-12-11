@@ -34,9 +34,5 @@ export class NavigationComponent{
         private loginStateService:LoginStateService,
     ){
     }
-    logout(){
-        localStorage.clear();
-        this.loginStateService.setIsLogged=false;
-        this.router.navigateByUrl("/")
-    }
+
 }

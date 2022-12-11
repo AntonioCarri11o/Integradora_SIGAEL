@@ -14,11 +14,18 @@ import { AuthModule } from './modules/auth/auth.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ListEmployeeComponent } from './components/employee/list-employee/list-employee.component';
 import { AdminNavbarComponent } from './components/admin/admin-navbar/admin-navbar.component';
+import { ListOrdersComponent } from './components/order/list-orders/list-orders.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { ListCustomersComponent } from './components/customer/list-customers/list-customers.component';
+import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes:Routes=[
   {path:'admin',component:AdminComponent},
   {path:`admin/listEmployee`, component:ListEmployeeComponent},
-  {path:'',component:NavigationComponent}
+  {path:'',component:NavigationComponent},
+  {path:'admin/orders',component:OrderComponent},
+  {path:'admin/listCustomers',component:ListCustomersComponent}
 ]
 @NgModule({
   declarations: [
@@ -30,6 +37,10 @@ const appRoutes:Routes=[
     NavigationComponent,
     ListEmployeeComponent,
     AdminNavbarComponent,
+    ListOrdersComponent,
+    CustomerComponent,
+    ListCustomersComponent,
+    AddCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     ...materialModules,
     AuthModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
 
   ],

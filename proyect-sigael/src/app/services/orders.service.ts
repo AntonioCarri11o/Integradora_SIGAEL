@@ -7,8 +7,13 @@ import { APP_URL } from './base-url';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class OrdersService {
   private loading:boolean=false;
-  constructor(private http:HttpClient) { }
-
+  getOrders(){
+    return this.http.get<any>(`${APP_URL}api/ordenes/`)
+  }
+  get isLoading(){
+    return this.loading;
+  }
+  constructor(private http:HttpClient) {}
 }

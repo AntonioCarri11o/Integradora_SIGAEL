@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+td{
+    height: 4em;
+    vertical-align:middle;
+}
+th{
+    height: 4em;
+    vertical-align: middle;
+}
+tr.trbody:hover{
+    background-color: #EBEBEB;
+}
+.right{
+    text-align: right;
+    width: 100%;
+}
+.exit{
+    background-color: red;
+}

@@ -1,0 +1,31 @@
+<app-admin-navbar></app-admin-navbar>
+<mat-card class="mt-5 mb-5" >
+  <mat-card-header class="row">
+    <div class="col">
+      <mat-card-title>Ordenes</mat-card-title>
+    </div>
+  </mat-card-header>
+
+    <table style="width:100%;" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Orden</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let order of orders">
+        <th scope="row">{{order.id}}</th>
+        <td>{{order.id_customer}}</td>
+        <td>{{order.name}}</td>
+        <td>{{order.r_date}}</td>
+        <td>{{order.description}}</td>
+        <td style="text-align: end;"><button style=" border-radius: 40%;" class="btn btn-lg btn-outline-primary"><i class="fa-solid fa-info"></i></button></td>
+      </tbody>
+      </table>
+
+
+</mat-card>

@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>
+    <div class="row">
+        <div class="col-8">
+            <h1>Nuevo Cliente</h1>
+        </div>
+        <div class="col right">
+            <button class="btn btn-danger" (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+    </div>
+
+
+<form #NewCustomerForm="ngForm" [formGroup]="formNewEmployee"(submit)="send()">
+    <div mat-dialog-content>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Nombre Completo</span>
+            <input type="text" #name="ngModel" class="form-control" formControlName="name" aria-label="Server">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Telefóno</span>
+            <input type="number" class="form-control" formControlName="phone_number" aria-label="Server">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Saldo</span>
+            <input type="number" class="form-control" formControlName="balance" aria-label="Server">
+            <span class="input-group-text">Tipo</span>
+            <select name="gender" class="form-control" formControlName="type" id="gender">
+              <option selected value="escuela" class="form-control">Escuela</option>
+              <option value="temporal" class="form-control">Temporal</option>
+              <option value="taller" class="form-control">Taller</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Dirección</span>
+            <input type="text" class="form-control" formControlName="address" aria-label="Server">
+          </div>
+
+
+    </div>
+    <div mat-dialog-actions>
+        <div class="right">
+
+            <button mat-button type="submit" [disabled]="formNewEmployee.invalid" cdkFocusInitial>Registrar</button>
+        </div>
+    
+    </div>
+</form>
+
