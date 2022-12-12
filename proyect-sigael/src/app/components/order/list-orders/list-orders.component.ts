@@ -17,7 +17,7 @@ export class ListOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.orderServices.getOrders().subscribe(resp=>{
       this.orders=resp
-      console.log(resp)
+      //console.log(resp)
     })
   }
   constructor(private orderServices:OrdersService,public dialog:MatDialog) {

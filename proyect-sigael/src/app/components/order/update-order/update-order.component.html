@@ -2,7 +2,7 @@
     <div mat-dialog-title class="col"><h1>Actualizar orden</h1></div>
     <div class="col right"> <button (click)="close()" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button></div>
 </div>
-<form #UpdateOrderForm>
+<form #UpdateOrderForm (submit)="update()">
     <div mat-dialog-content>
         <br>
         <div class="input-group mb-3">
@@ -50,24 +50,38 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Anticipo</span>
-            <input type="text" disabled matInput required name="balance" #balance="ngModel" [(ngModel)]="order.balance" class="form-control" aria-label="Server">
+            <input type="text" matInput required name="balance" #balance="ngModel" [(ngModel)]="order.balance" class="form-control" aria-label="Server">
             <span class="input-group-text">Total</span>
-            <input type="text" disabled matInput required name="total" #total="ngModel" [(ngModel)]="order.total" class="form-control" aria-label="Server">
+            <div class="form-control" aria-label="Server">{{order.total}}</div>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text">Recibió</span>
-            <input type="text" disabled matInput required name="rEmployee" #r_employee="ngModel" [(ngModel)]="order.r_employee" class="form-control" aria-label="Server">
+            <div matInput required name="rEmployee" class="form-control" aria-label="Server">
+                {{order.r_employee}}
+            </div>
             <span class="input-group-text">Entregó</span>
-            <input type="text" disabled matInput required name="rEmployee" #g_employee="ngModel" [(ngModel)]="order.g_employee" class="form-control" aria-label="Server">
+            <div matInput required name="gEmployee" class="form-control" aria-label="Server">
+                {{order.g_employee}}
+            </div>
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text">Estado</span>
             <select required name="status" 
-            #status="ngModel" [(ngModel)]="order.status" class="form-control" id="type">
-              <option value="escuela" class="form-control">Escuela</option>
-              <option value="taller" class="form-control">Taller</option>
+            #status="ngModel" [(ngModel)]="order.status" class="form-control" id="status">
+            <option value="p">Pendiente</option>
+            <option value="e">Entregado</option>
+            <option value="t">Terminado</option>
+            <option value="c">Cancelado</option>
             </select>
+            <span class="input-group-text">Folio</span>
+            <input type="number" matInput required name="folio" #folio="ngModel" [(ngModel)]="order.folio" class="form-control" aria-label="Server">
         </div>
     </div>
+    <div mat-dialog-actions>
+        <div class="right">
+          <button mat-button class="btn btn-secondary" type="button" (click)="close()" >Cancelar</button>
+          <button mat-button class="btn btn-success"  type="submit">Actualizar</button>
+        </div>
+      </div>
 </form>
