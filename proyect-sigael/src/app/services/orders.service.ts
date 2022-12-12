@@ -12,6 +12,19 @@ export class OrdersService {
   getOrders(){
     return this.http.get<any>(`${APP_URL}api/ordenes/`)
   }
+  updateOrder(payload:Order){
+    const headers={
+      "Content-type":"application/json"
+    }
+    return this.http.put<any>(`${APP_URL}api/ordenes/`,payload,{headers}).pipe(
+      catchError((error)=>{
+        this.loading= false;
+        return error;
+      })
+    ).subscribe((response)=>{
+      console.log(response.message)
+    })
+  }
   get isLoading(){
     return this.loading;
   }

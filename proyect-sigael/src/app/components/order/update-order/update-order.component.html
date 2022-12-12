@@ -1,0 +1,58 @@
+<div class="row">
+    <div mat-dialog-title class="col"><h1>Actualizar orden</h1></div>
+    <div class="col right"> <button (click)="close()" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button></div>
+</div>
+<form #UpdateOrderForm>
+    <div mat-dialog-content>
+        <br>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Recibido</span>
+            <input disabled type="text" matInput required name="rdate" 
+            #r_date="ngModel" [(ngModel)]="order.r_date" class="form-control" aria-label="Server" type="text">
+            <span class="input-group-text">Entregado</span>
+            <input disabled type="text" matInput required name="gdate" 
+            #g_date="ngModel" [(ngModel)]="order.g_date" class="form-control" aria-label="Server" type="text">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Cliente</span>
+            <input type="text" matInput required name="customer" 
+            #customer="ngModel" [(ngModel)]="order.customer" class="form-control" aria-label="Server">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Teléfono</span>
+            <input type="number" matInput required name="phone_number" 
+            #phone_number="ngModel" [(ngModel)]="order.phone_number" class="form-control" aria-label="Server">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Nombre</span>
+            <input type="text" matInput required name="name" 
+            #name="ngModel" [(ngModel)]="order.name" class="form-control" aria-label="Server">
+
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Descripcion</span>
+            <textarea matInput required name="description" 
+            #description="ngModel" [(ngModel)]="order.description" class="form-control" aria-label="Server">
+            </textarea>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Comentarios</span>
+            <textarea matInput required name="comments" 
+            #comments="ngModel" [(ngModel)]="order.comments" class="form-control" aria-label="Server">
+            </textarea>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Piezas</span>
+            <input type="number" matInput required name="pieces" #pieces="ngModel" [(ngModel)]="order.pieces" class="form-control" aria-label="Server">
+            <span class="input-group-text">Precio</span>
+            <input type="number" matInput required name="prize" #prize="ngModel" [(ngModel)]="order.prize" class="form-control" aria-label="Server">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Comentarios</span>
+            <textarea matInput required name="comments" 
+            #comments="ngModel" [(ngModel)]="order.comments" class="form-control" aria-label="Server">
+            </textarea>
+        </div>
+    </div>
+</form>

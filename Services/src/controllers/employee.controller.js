@@ -40,23 +40,21 @@ const returnRole=async(req)=>{
 const createEmpleado = async(req,res) => {
     const {username,password,name,age,phone_number,gender} = req.body
     const [rows] = await database.query('INSERT INTO employee (username,password,name,age,phone_number,gender) VALUES (?,?,?,?,?,?)',[username,password,name,age,phone_number,gender])
-    //const getRole=await returnRole(req);
-    console.log(getRole);
-    res.send({username,password,name,age,phone_number,gender});
+    const message="!!Cliente Registrado de manera Exitosa!!"
+    res.json({message})
     
 }
 
 const UpdateEmpleado = async(req,res) => {
-    const {id} = req.params
-    const {username,password,name,age,phone_number,gender,state} = req.body
+    const {id,username,password,name,age,phone_number,gender,state} = req.body
     const [result] = await database.query('UPDATE employee SET username=?,password=?,name=?,age=?,phone_number=?,gender=?,state=? WHERE id = ?;',
     [username,password,name,age,phone_number,gender,state,id])
     if(result.affectedRows === 0){
         res.status(404),json({message:'No encontre a su empleado'})
     }
     const [personal] = ('SELECT * FROM employee WHERE id=?;',[id])
-    res.send("Actualizacion del Emplead@ Correcta")
-    res.json(personal)
+    const message="Actualizacion del Emplead@ Correcta"
+    res.json({message})
 };
 
 module.exports={

@@ -1,20 +1,26 @@
 import {Entity} from "../../../types/entity";
 
 export type Order=Entity<number>&{
-    id:number,
+    id:number|null,
     name:string,
     description:string,
-    pieces:number,
-    prize:number,
-    total:number,
-    r_date:string,
-    g_date:string,
-    status:string,
-    folio:number,
-    balance:number,
-    comments:string,
-    id_customer:number,
+    pieces:number|null,
+    prize:number|null,
+    total:number|null,
+    r_date:string|null,
+    g_date:string|null,
+    status:string|null,
+    folio:number|null,
+    balance:number|null,
+    comments:string|null,
+    id_customer:number|null,
     idr_employee:number,
-    idg_employee:number
+    idg_employee:number|null,
+    phone_number:number,
+
+    remployee:string|null,
+    g_employee:string|null,
+    customer:string|null
+
 
 }

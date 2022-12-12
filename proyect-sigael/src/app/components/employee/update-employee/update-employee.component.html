@@ -1,0 +1,58 @@
+<div class="row">
+    <div mat-dialog-title class="col"><h1>Nuevo Empleado</h1></div>
+    <div class="col right">
+        <button class="btn btn-danger" (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+<form #NewEmployeeForm="ngForm" novalidate (submit)="update()">
+    <div mat-dialog-content>
+        <br>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Nombre Completo</span>
+            <input type="text" matInput required name="name" #name="ngModel" [(ngModel)]="emp.name" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Teléfono</span>
+            <input type="number" matInput required name="phone_number" #phone_number="ngModel" [(ngModel)]="emp.phone_number" class="form-control">
+            <span class="input-group-text">Estado</span>
+            <select *ngIf="emp.state=='a'" required name="state" #state="ngModel" [(ngModel)]="emp.state" class="btn btn-success form-control" id="state">
+                <option value="a">Acivo</option>
+                <option value="i">Inacitvo</option>
+            </select>
+            <select *ngIf="emp.state=='i'" required name="state" #state="ngModel" [(ngModel)]="emp.state" class="btn btn-danger form-control" id="state">
+                <option value="a">Acivo</option>
+                <option value="i">Inacitvo</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Edad</span>
+            <input type="number" matInput required name="age"
+            #age="ngModel" [(ngModel)]="emp.age" class="form-control">
+            <span class="input-group-text">Sexo</span>
+            <select required name="gender" 
+            #gender="ngModel" [(ngModel)]="emp.gender" class="form-control" id="gender">
+              <option value="h" class="form-control">Hombre</option>
+              <option value="m" class="form-control">Mujer</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Nombre de usuario</span>
+            <input type="text" matInput required name="username" #username="ngModel" [(ngModel)]="emp.username" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Contraseña</span>
+            <input type="text" matInput required name="password" #password="ngModel" [(ngModel)]="emp.password" class="form-control">
+        </div>
+        <div class="input-grou mb-3">
+            <td>
+
+              </td>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <div class="right">
+            <button mat-button class="btn btn-secondary" type="button" (click)="close()">Cancelar</button>
+            <button mat-button class="btn btn-success"  type="submit">Actualizar</button>
+        </div>
+    </div>
+</form>

@@ -17,13 +17,20 @@
           <th scope="col"></th>
         </tr>
       </thead>
-      <tbody *ngFor="let order of orders">
-        <th scope="row">{{order.id}}</th>
-        <td>{{order.id_customer}}</td>
-        <td>{{order.name}}</td>
-        <td>{{order.r_date}}</td>
-        <td>{{order.description}}</td>
-        <td style="text-align: end;"><button style=" border-radius: 40%;" class="btn btn-lg btn-outline-primary"><i class="fa-solid fa-info"></i></button></td>
+      <tbody *ngFor="let order of orders" (click)="update(order)">
+        <tr class="trbody">
+          <th scope="col">{{order.id}}</th>
+          <td>{{order.customer}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.r_date}}</td>
+          <td>{{order.description}}</td>
+          <td>
+            <div *ngIf="order.status=='p'" class="btn btn-warning">Pendiente</div>
+            <div *ngIf="order.status=='t'" class="btn btn-success">Terminado</div>
+            <div *ngIf="order.status=='e'" class="btn btn-primary">Entregado</div>
+          </td>
+        </tr>
+
       </tbody>
       </table>
 

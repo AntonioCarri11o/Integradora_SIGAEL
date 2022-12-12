@@ -1,0 +1,44 @@
+<div class="row">
+    <div mat-dialog-title class="col"><h1>Nuevo Empleado</h1></div>
+    <div class="col right">
+        <button class="btn btn-danger" (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+<form #NewEmployeeForm="ngForm" novalidate (submit)="send()">
+    <div mat-dialog-content>
+        <br>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Nombre Completo</span>
+            <input type="text" matInput required name="name" #name="ngModel" [(ngModel)]="employee.name" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Teléfono</span>
+            <input type="number" matInput required name="phone_number" #phone_number="ngModel" [(ngModel)]="employee.phone_number" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Edad</span>
+            <input type="number" matInput required name="age"
+            #age="ngModel" [(ngModel)]="employee.age" class="form-control">
+            <span class="input-group-text">Sexo</span>
+            <select required name="gender" 
+            #gender="ngModel" [(ngModel)]="employee.gender" class="form-control" id="gender">
+              <option value="h" class="form-control">Hombre</option>
+              <option value="m" class="form-control">Mujer</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Nombre de usuario</span>
+            <input type="text" matInput required name="username" #username="ngModel" [(ngModel)]="employee.username" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Contraseña</span>
+            <input type="text" matInput required name="password" #password="ngModel" [(ngModel)]="employee.password" class="form-control">
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <div class="right">
+            <button mat-button class="btn btn-secondary" type="button" (click)="close()">Cancelar</button>
+            <button mat-button class="btn btn-success"  type="submit">Registrar</button>
+        </div>
+    </div>
+</form>

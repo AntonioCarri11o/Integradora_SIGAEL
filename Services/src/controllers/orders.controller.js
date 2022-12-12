@@ -2,7 +2,7 @@ const { json } = require ('express');
 const {database} = require ('../utils/database.js');
 
 const getPedidos = async(req,res=Response) => {
-    const [rows] = await database.query('SELECT * FROM orders')
+    const [rows] = await database.query('SELECT ord.*, emp.username, gemp.username, cus.name as customer,cus.phone_number FROM orders ord inner JOIN employee emp on ord.idr_employee=emp.id JOIN employee gemp on ord.idg_employee=gemp.id Join customer cus on ord.id_customer=cus.id;')
     res.json(rows)
 }
 const getPedidosById = async (req,res) => {
@@ -30,17 +30,15 @@ const createPedidos = async(req,res) => {
 }
 
 const UpdatePedido = async(req,res) => {
-    const {id} = req.params
-    const {name,description,pieces,prize,total,r_date,status,balance,comments,id_customer,idr_employee} = req.body
+    const {id,name,description,pieces,prize,total,r_date,status,balance,comments,id_customer,idr_employee} = req.body
     const calculo = (total-balance);
-    const [result] = await database.query('UPDATE orders SET name=?,description=?,pieces=?,prize=?,total=?,r_date=?,status=?,balance=?,comments=?,id_customer=?,idr_employee=? WHERE id = ?;',
-    [name,description,pieces,prize,calculo,r_date,status,balance,comments,id_customer,idr_employee,id])
+    const [result] = await database.query('UPDATE orders SET name=?,description=?,pieces=?,prize=?,total=?,balance=?,comments=?,id_customer=?,idr_employee=? WHERE id = ?;',
+    [name,description,pieces,prize,calculo,balance,comments,id_customer,idr_employee,id])
     if(result.affectedRows === 0){
         res.status(404),json({message:'No encontre su pedido por favor llamar a un Gerente'})
     }
-    const [personal] = ('SELECT * FROM orders WHERE id=?;',[id])
-    res.send("Actualizacion del Pedido Correcta")
-    res.json(personal)
+    const message="Actualizacion del Pedido Correcta";
+    res.json({message})
 };
 
 const DeletePedido = async(req,res) => {
