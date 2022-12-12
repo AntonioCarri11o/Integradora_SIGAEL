@@ -49,10 +49,25 @@
             <input type="number" matInput required name="prize" #prize="ngModel" [(ngModel)]="order.prize" class="form-control" aria-label="Server">
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text">Comentarios</span>
-            <textarea matInput required name="comments" 
-            #comments="ngModel" [(ngModel)]="order.comments" class="form-control" aria-label="Server">
-            </textarea>
+            <span class="input-group-text">Anticipo</span>
+            <input type="text" disabled matInput required name="balance" #balance="ngModel" [(ngModel)]="order.balance" class="form-control" aria-label="Server">
+            <span class="input-group-text">Total</span>
+            <input type="text" disabled matInput required name="total" #total="ngModel" [(ngModel)]="order.total" class="form-control" aria-label="Server">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Recibió</span>
+            <input type="text" disabled matInput required name="rEmployee" #r_employee="ngModel" [(ngModel)]="order.r_employee" class="form-control" aria-label="Server">
+            <span class="input-group-text">Entregó</span>
+            <input type="text" disabled matInput required name="rEmployee" #g_employee="ngModel" [(ngModel)]="order.g_employee" class="form-control" aria-label="Server">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Estado</span>
+            <select required name="status" 
+            #status="ngModel" [(ngModel)]="order.status" class="form-control" id="type">
+              <option value="escuela" class="form-control">Escuela</option>
+              <option value="taller" class="form-control">Taller</option>
+            </select>
         </div>
     </div>
 </form>

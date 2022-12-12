@@ -6,6 +6,7 @@ import {SigninComponent} from "../../modules/auth/pages/signin/signin.component"
 import { ListEmployeeComponent } from "src/app/components/employee/list-employee/list-employee.component";
 import { OrderComponent } from "src/app/components/order/order.component";
 import { CustomerComponent } from "src/app/components/customer/customer.component";
+import { EmployeeComponent } from "src/app/components/employee/employee.component";
 
 const routes: Routes = [
   
@@ -25,6 +26,9 @@ const routes: Routes = [
   },
   {
     path:`/admin/listCustomers`,component:CustomerComponent
+  },
+  {
+    path:'/employee',component:EmployeeComponent,pathMatch:'full'
   }
 
 ];

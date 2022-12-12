@@ -30,7 +30,8 @@ const appRoutes:Routes=[
   {path:`admin/listEmployee`, component:ListEmployeeComponent},
   {path:'',component:NavigationComponent},
   {path:'admin/orders',component:OrderComponent},
-  {path:'admin/listCustomers',component:ListCustomersComponent}
+  {path:'admin/listCustomers',component:ListCustomersComponent},
+  {path:'employee',component:EmployeeComponent}
 ]
 @NgModule({
   declarations: [

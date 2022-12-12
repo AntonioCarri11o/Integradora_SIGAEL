@@ -18,7 +18,7 @@ export type Order=Entity<number>&{
     idg_employee:number|null,
     phone_number:number,
 
-    remployee:string|null,
+    r_employee:string|null,
     g_employee:string|null,
     customer:string|null
 

@@ -52,6 +52,8 @@ export class AuthService {
         this.loginState.setIsLogged = true;
         if(localStorage.getItem("role")==="admin"){
           this.router.navigateByUrl("/admin");
+        }if(localStorage.getItem("role")==="employee"){
+          this.router.navigateByUrl("/employee")
         }
         
       });
