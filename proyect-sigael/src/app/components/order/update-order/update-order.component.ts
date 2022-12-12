@@ -22,4 +22,14 @@ export class UpdateOrderComponent implements OnInit {
     this.orderService.updateOrder(this.order)
     this.dialogRef.close();
   }
+  updateStatus(status:string, id:number){
+    const payload={
+      "status":status,
+      "id":id,
+      "idg_employee":5555
+    };
+    this.orderService.updateStatus(payload)
+    this.close();
+  }
+  
 }

@@ -32,15 +32,22 @@ const createPedidos = async(req,res) => {
 const UpdatePedido = async(req,res) => {
     const {id,name,description,pieces,prize,total,status,balance,comments,id_customer,idr_employee,customer,phone_number} = req.body
     const calculo = (total-balance);
-    const [result] = await database.query('UPDATE orders SET name=?,description=?,pieces=?,prize=?,total=?,balance=?,comments=?,id_customer=?,idr_employee=? WHERE id = ?;',[name,description,pieces,prize,calculo,balance,comments,id_customer,idr_employee,id])
+    const [result] = await database.query('UPDATE orders SET name=?,description=?,pieces=?,prize=?,total=?,balance=?,comments=?,id_customer=?,idr_employee=?,status=?,total=? WHERE id = ?;',[name,description,pieces,prize,calculo,balance,comments,id_customer,idr_employee,status,total,id])
     if(result.affectedRows === 0){
         res.status(404),json({message:'No encontre su pedido por favor llamar a un Gerente'})
     }else{
         const [res]=await database.query('UPDATE customer set name=?,phone_number=? where id=?',[customer,phone_number,id_customer])
     }
-    const message="Actualizacion del Pedido Correcta";
+    const message="Actualizacion del Pedido Correcta";  
     res.json({message})
 };
+const UpdateState=async(req,res)=>{
+    const {id,status,idg_employee}=req.body
+    const [result]=await database.query('Update orders SET status=?,idg_employee=?, g_date=CURDATE() where id=?;',[status,idg_employee,id]);
+    const message="Estado actualizado";
+    res.json({message})
+}
+
 
 const DeletePedido = async(req,res) => {
     const [rows] = await database.query('DELETE FROM orders WHERE id = ?;',[req.params.id])
@@ -56,5 +63,6 @@ module.exports={
     getPedidosById,
     getPedidosByname,
     createPedidos,
-    UpdatePedido
+    UpdatePedido,
+    UpdateState
 }

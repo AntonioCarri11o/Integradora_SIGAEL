@@ -18,11 +18,13 @@ tr.trbody:hover{
     width: 100%;
     align-content: right;
 }
+.center{
+    text-align: center;
+    width: 100%;
+    align-content: center;
+}
 .exit{
     background-color: red;
-}
-.bi{
-
 }
 .bi-plus-circle{
     font-size: larger;

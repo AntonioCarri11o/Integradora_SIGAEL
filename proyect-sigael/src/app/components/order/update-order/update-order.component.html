@@ -6,10 +6,13 @@
     <div mat-dialog-content>
         <br>
         <div class="input-group mb-3">
-            <span class="input-group-text">Recibido</span>
+            <span class="input-group-text">Recibido:</span>
             <input disabled type="text" matInput required name="rdate" 
             #r_date="ngModel" [(ngModel)]="order.r_date" class="form-control" aria-label="Server" type="text">
-            <span class="input-group-text">Entregado</span>
+            <span *ngIf="order.status=='p'" class="input-group-text btn btn-warning">Pendiente</span>
+            <span *ngIf="order.status=='e'" class="input-group-text btn btn-primary">Entregado:</span>
+            <span *ngIf="order.status=='t'" class="input-group-text btn btn-success">Terminado:</span>
+            <span *ngIf="order.status=='c'" class="input-group-text btn btn-danger">Cancelado:</span>
             <input disabled type="text" matInput required name="gdate" 
             #g_date="ngModel" [(ngModel)]="order.g_date" class="form-control" aria-label="Server" type="text">
         </div>
@@ -59,24 +62,29 @@
             <div matInput required name="rEmployee" class="form-control" aria-label="Server">
                 {{order.r_employee}}
             </div>
-            <span class="input-group-text">Entregó</span>
+            <span *ngIf="order.status=='c'" class="input-group-text">Canceló:</span>
+            <span *ngIf="order.status=='p'" class="input-group-text">Pendiente:</span>
+            <span *ngIf="order.status=='e'" class="input-group-text">Entregó:</span>
+            <span *ngIf="order.status=='t'" class="input-group-text">Terminado</span>
             <div matInput required name="gEmployee" class="form-control" aria-label="Server">
                 {{order.g_employee}}
             </div>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text">Estado</span>
-            <select required name="status" 
-            #status="ngModel" [(ngModel)]="order.status" class="form-control" id="status">
-            <option value="p">Pendiente</option>
-            <option value="e">Entregado</option>
-            <option value="t">Terminado</option>
-            <option value="c">Cancelado</option>
-            </select>
-            <span class="input-group-text">Folio</span>
-            <input type="number" matInput required name="folio" #folio="ngModel" [(ngModel)]="order.folio" class="form-control" aria-label="Server">
-        </div>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item center">Actualizar estado</li>
+              <li class="list-group-item">
+                <div class="row">
+                    <div class="col center"><button (click)="updateStatus('p',order.id)" type="button" class="btn  btn-warning">Pendiente</button></div>
+                    <div class="col center"><button (click)="updateStatus('c',order.id)" type="button" class="btn  btn-danger">Cancelado</button></div>
+                    <div class="col center"><button (click)="updateStatus('t',order.id)" type="button" class="btn  btn-success">Terminado</button></div>
+                    <div class="col center"><button (click)="updateStatus('e',order.id)" type="button" class="btn  btn-primary">Entregado</button></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <br>
     </div>
     <div mat-dialog-actions>
         <div class="right">

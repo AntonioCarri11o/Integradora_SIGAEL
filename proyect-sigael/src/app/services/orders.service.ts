@@ -13,10 +13,24 @@ export class OrdersService {
     return this.http.get<any>(`${APP_URL}api/ordenes/`)
   }
   updateOrder(payload:Order){
+    payload.total=payload.prize!*payload.pieces!
     const headers={
       "Content-type":"application/json"
     }
     return this.http.put<any>(`${APP_URL}api/ordenes/`,payload,{headers}).pipe(
+      catchError((error)=>{
+        this.loading= false;
+        return error;
+      })
+    ).subscribe((response)=>{
+      console.log(response.message)
+    })
+  }
+  updateStatus(payload:any){
+    const headers={
+      "Content-type":"application/json"
+    }
+    return this.http.put<any>(`${APP_URL}api/ordenes/upState`,payload,{headers}).pipe(
       catchError((error)=>{
         this.loading= false;
         return error;

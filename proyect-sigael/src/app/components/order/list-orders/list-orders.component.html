@@ -25,10 +25,12 @@
           <td>{{order.r_date}}</td>
           <td>{{order.description}}</td>
           <td>
+
             <div *ngIf="order.status=='p'" class="btn btn-warning">Pendiente</div>
             <div *ngIf="order.status=='t'" class="btn btn-success">Terminado</div>
             <div *ngIf="order.status=='e'" class="btn btn-primary">Entregado</div>
             <div *ngIf="order.status=='c'" class="btn btn-secondary">Cancelado</div>
+
           </td>
         </tr>
 
