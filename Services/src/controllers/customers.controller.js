@@ -14,7 +14,6 @@ const getClienteById = async (req,res) => {
 };
 const getClientesByType = async (req,res)=>{
     const type=req.body
-    console.log(type)
     const [result]=await database.query("SELECT * from customer where type=?;",[type.type])
     res.json(result)
 };
@@ -25,6 +24,14 @@ const getClienteByname = async (req,res) => {
     }
    res.json(rows[0]) 
 };
+const validateId=async(req,res)=>{
+    const id=req.body
+    const [rows]=await database.query('SELECT id FROM customer where  id=?;',[id.id])
+    res.json(rows.length)
+}
+const createTemporal=async(req,res)=>{
+
+}
 
 const createCliente = async(req,res) => {
     const {name,type,phone_number,address,balance} = req.body
@@ -55,5 +62,6 @@ module.exports={
     createCliente,
     UpdateCliente,
     DeleteCliente,
-    getClientesByType
+    getClientesByType,
+    validateId
 }

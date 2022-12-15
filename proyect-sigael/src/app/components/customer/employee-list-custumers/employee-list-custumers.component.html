@@ -19,7 +19,7 @@
             <th scope="col">Crédito</th>
           </tr>
         </thead>
-        <tbody *ngFor="let customer of customers" (click)="newOrder(customer.id)">
+        <tbody *ngFor="let customer of customers" (click)="newOrder(customer)">
           <tr class="trbody">
               <th scope="row">{{customer.id}}</th>
               <td>{{customer.name}}</td>

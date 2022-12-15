@@ -25,6 +25,9 @@ import { UpdateEmployeeComponent } from './components/employee/update-employee/u
 import { UpdateOrderComponent } from './components/order/update-order/update-order.component';
 import { EmployeeListCustumersComponent } from './components/customer/employee-list-custumers/employee-list-custumers.component';
 import { EmployeeNavbarComponent } from './components/employee/employee-navbar/employee-navbar.component';
+import { NewOrderComponent } from './components/order/new-order/new-order.component';
+import { ListCustomerTallerComponent } from './components/customer/list-customer-taller/list-customer-taller.component';
+import { NewOrderTempComponent } from './components/order/new-order-temp/new-order-temp.component';
 const appRoutes:Routes=[
   {path:'admin',component:AdminComponent},
   {path:`admin/listEmployee`, component:ListEmployeeComponent},
@@ -32,7 +35,8 @@ const appRoutes:Routes=[
   {path:'admin/orders',component:OrderComponent},
   {path:'admin/listCustomers',component:ListCustomersComponent},
   {path:'employee',component:EmployeeComponent},
-  {path:'employee/customers',component:EmployeeListCustumersComponent,pathMatch:'full'}
+  {path:'employee/customers/escuela',component:EmployeeListCustumersComponent,pathMatch:'full'},
+  {path:'employee/customers/taller',component:EmployeeListCustumersComponent,pathMatch:'full'}
 ]
 @NgModule({
   declarations: [
@@ -54,6 +58,9 @@ const appRoutes:Routes=[
     UpdateOrderComponent,
     EmployeeListCustumersComponent,
     EmployeeNavbarComponent,
+    NewOrderComponent,
+    ListCustomerTallerComponent,
+    NewOrderTempComponent,
 
 
   ],

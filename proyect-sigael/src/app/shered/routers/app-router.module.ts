@@ -7,16 +7,15 @@ import { ListEmployeeComponent } from "src/app/components/employee/list-employee
 import { OrderComponent } from "src/app/components/order/order.component";
 import { CustomerComponent } from "src/app/components/customer/customer.component";
 import { EmployeeComponent } from "src/app/components/employee/employee.component";
-import { ListOrdersEmployeeComponent } from "src/app/components/employee/list-orders-employee/list-orders-employee.component";
 import { EmployeeListCustumersComponent } from "src/app/components/customer/employee-list-custumers/employee-list-custumers.component";
 
 const routes: Routes = [
-  
+
   {
     path: `/auth`,
     component: SigninComponent
   },
-  
+
   {
     path:`/admin`, component:AdminComponent,pathMatch:'full'
   },
@@ -33,7 +32,10 @@ const routes: Routes = [
     path:'/employee',component:EmployeeComponent,pathMatch:'full'
   },
   {
-    path:'/employee/customers',component:EmployeeListCustumersComponent,pathMatch:'full'
+    path:'/employee/customers/escuela',component:EmployeeListCustumersComponent,pathMatch:'full'
+  },
+  {
+    path:'/employee/customers/taller',component:EmployeeListCustumersComponent,pathMatch:'full'
   }
 
 ];
@@ -44,6 +46,6 @@ const routes: Routes = [
   exports: [RouterModule],
   bootstrap: [AppComponent],
 })
- 
+
 */
 export class AppRouterModule{}
