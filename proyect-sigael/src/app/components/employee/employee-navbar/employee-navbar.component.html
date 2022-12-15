@@ -1,0 +1,31 @@
+
+
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">SIGAEL</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+
+                      <div class="dropdown" style="width:10%;">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Nueva orden
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><button class="dropdown-item" (click)="newOrder('escuela')">Escuela</button></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">Taller</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">Nuevo Cliente</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <a class="nav-link active" aria-current="page" href="/admin/orders">Ordenes</a>
+                    <div class="col text-end">
+                        <button class="btn btn-danger" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </nav>

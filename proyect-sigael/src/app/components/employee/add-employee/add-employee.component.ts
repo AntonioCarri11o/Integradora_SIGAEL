@@ -26,6 +26,7 @@ export class AddEmployeeComponent implements OnInit {
   }
   close():void{
     this.dilogRef.close();
+    window.location.reload();
   }
   send(){
     //window.location.reload();

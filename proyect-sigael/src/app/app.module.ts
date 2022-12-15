@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -18,24 +18,25 @@ import { ListOrdersComponent } from './components/order/list-orders/list-orders.
 import { CustomerComponent } from './components/customer/customer.component';
 import { ListCustomersComponent } from './components/customer/list-customers/list-customers.component';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateCustomerComponent } from './components/customer/update-customer/update-customer.component';
 import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './components/employee/update-employee/update-employee.component';
 import { UpdateOrderComponent } from './components/order/update-order/update-order.component';
-
+import { EmployeeListCustumersComponent } from './components/customer/employee-list-custumers/employee-list-custumers.component';
+import { EmployeeNavbarComponent } from './components/employee/employee-navbar/employee-navbar.component';
 const appRoutes:Routes=[
   {path:'admin',component:AdminComponent},
   {path:`admin/listEmployee`, component:ListEmployeeComponent},
   {path:'',component:NavigationComponent},
   {path:'admin/orders',component:OrderComponent},
   {path:'admin/listCustomers',component:ListCustomersComponent},
-  {path:'employee',component:EmployeeComponent}
+  {path:'employee',component:EmployeeComponent},
+  {path:'employee/customers',component:EmployeeListCustumersComponent,pathMatch:'full'}
 ]
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
     EmployeeComponent,
     OrderComponent,
     AdminComponent,
@@ -51,6 +52,10 @@ const appRoutes:Routes=[
     AddEmployeeComponent,
     UpdateEmployeeComponent,
     UpdateOrderComponent,
+    EmployeeListCustumersComponent,
+    EmployeeNavbarComponent,
+
+
   ],
   imports: [
     BrowserModule,

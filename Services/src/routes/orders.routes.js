@@ -9,6 +9,7 @@ routerOrders.get('/ordenes/orden/:name',getPedidosByname);
 routerOrders.post('/ordenes/',[auth,checkRoles(['empleado'])],createPedidos);
 routerOrders.put('/ordenes/',UpdatePedido);
 routerOrders.put('/ordenes/upState',UpdateState);
+routerOrders.post('/ordenes/',[auth,checkRoles(['empleado'])],createPedidos);
 
 module.exports={
     routerOrders

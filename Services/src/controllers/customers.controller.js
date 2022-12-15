@@ -12,7 +12,12 @@ const getClienteById = async (req,res) => {
     }
    res.json(rows[0]) 
 };
-
+const getClientesByType = async (req,res)=>{
+    const type=req.body
+    console.log(type)
+    const [result]=await database.query("SELECT * from customer where type=?;",[type.type])
+    res.json(result)
+};
 const getClienteByname = async (req,res) => {
     const [rows] = await database.query('SELECT * FROM customer WHERE name = ?;',[req.params.name])
     if(rows.length <= 0){
@@ -49,5 +54,6 @@ module.exports={
     getClienteByname,
     createCliente,
     UpdateCliente,
-    DeleteCliente
+    DeleteCliente,
+    getClientesByType
 }

@@ -19,7 +19,7 @@ export class AddCustomerComponent {
     address:"",
     balance:""
   }
-  
+
 
   ngOnInit(): void {
   }
@@ -27,7 +27,7 @@ export class AddCustomerComponent {
     this.dialogRef.close();
   }
   send(){
-    window.location.reload()
+    //window.location.reload()P
     this.customerService.createCustomer(this.customer)
     this.close()
   }

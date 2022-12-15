@@ -12,6 +12,12 @@ export class CustomersService {
   getCustomers(){
     return this.http.get<any>(`${APP_URL}api/clientes`);
   }
+  getByType(payload:any){
+    const headers={
+      "Content-type":"application/json"
+    }
+    return this.http.post<any>(`${APP_URL}api/clientes/bytype`,payload,{headers})
+  }
   updateCustomer(payload:Customer){
     const headers={
       "Content-type":"application/json"
