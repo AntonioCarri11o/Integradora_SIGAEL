@@ -9,7 +9,7 @@ import {Customer} from "../../../modules/customer/types/customer";
 })
 export class NewOrderComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<NewOrderComponent>,@Inject(MAT_DIALOG_DATA)public customer:Customer,orderService:OrdersService) { }
+  constructor(public dialogRef:MatDialogRef<NewOrderComponent>,@Inject(MAT_DIALOG_DATA)public customer:Customer,private orderService:OrdersService) { }
   order:any={
     name:"",
     desc:"",
@@ -18,7 +18,8 @@ export class NewOrderComponent implements OnInit {
     total:0,
     balance:0,
     comments:"",
-    idr_employee:5557
+    idr_employee:5557,
+    idg_employee:5557
   }
   ngOnInit(): void {
   }
@@ -28,6 +29,10 @@ export class NewOrderComponent implements OnInit {
     //this.router.navigateByUrl('admin/listCustomers')
   }
   save(){
-
+    this.order.id_customer=this.customer.id
+    this.orderService.createOrder(this.order).subscribe((response)=>{
+      console.log(response.message)
+    })
+    this.close();
   }
 }

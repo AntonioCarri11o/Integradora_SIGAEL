@@ -35,8 +35,7 @@ export class EmployeeNavbarComponent implements OnInit {
   }
   newOrderT(type:string){
     localStorage.setItem('type',type)
-    const num=Math.floor(Math.random()*(5000-1)+1)
-    console.log(num)
+
     this.router.navigateByUrl("/employee/customers/taller");
   }
   newOrderTemp(){

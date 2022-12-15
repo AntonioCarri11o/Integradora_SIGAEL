@@ -29,13 +29,17 @@ const validateId=async(req,res)=>{
     const [rows]=await database.query('SELECT id FROM customer where  id=?;',[id.id])
     res.json(rows.length)
 }
-const createTemporal=async(req,res)=>{
-
-}
 
 const createCliente = async(req,res) => {
-    const {name,type,phone_number,address,balance} = req.body
-    const [rows] = await database.query('INSERT INTO customer (name,type,phone_number,address,balance) VALUES (?,?,?,?,?)',[name,type,phone_number,address,balance])
+    const {id,name,type,phone_number,address,balance} = req.body
+    if(type=='escuela'||type=='taller'){
+        const [rows] = await database.query('INSERT INTO customer (name,type,phone_number,address,balance) VALUES (?,?,?,?,?)',[name,type,phone_number,address,balance])
+        console.log("escuela/taller")
+    }else{
+        const [rows]=await database.query('INSERT INTO customer (id,name,phone_number) VALUES(?,?,?);',[id,name,phone_number])
+        console.log("temporal")
+    }
+    console.log("si entre pero me hice pendejo")
     const message="!!Cliente Registrado de manera Exitosa!!"
     res.json({message})
 };

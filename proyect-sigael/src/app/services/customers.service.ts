@@ -33,18 +33,21 @@ export class CustomersService {
   }
   createCustomer(payload:Customer){
     this.loading=true
+    console.log(payload)
     const headers={
       "Content-type":"application/json"
     }
-    return this.http.post<any>(`${APP_URL}api/clientes/`,payload,{headers}).pipe(
-      catchError((error)=>{
-        this.loading= false;
-        return error;
-      })
-    ).subscribe((response)=>{
-      console.log(response.message)
-    })
+    return this.http.post<any>(`${APP_URL}api/clientes/`,payload,{headers})
   }
+  validateId(id:number){
+    const payload={id}
+    this.loading=true;
+    const headers={
+      "Content-type":"application/json"
+    }
+    return this.http.post<any>(`${APP_URL}api/clientes/validateId`,payload,{headers})
+  }
+
   get isLoading(){
     return this.loading;
   }

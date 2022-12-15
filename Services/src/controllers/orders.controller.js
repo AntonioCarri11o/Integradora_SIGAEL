@@ -1,7 +1,7 @@
 const { json } = require ('express');
 const {database} = require ('../utils/database.js');
 
-const getPedidos = async(req,res=Response) => {
+const getPedidos = async(req,res) => {
     const [rows] = await database.query('SELECT ord.*, emp.username as r_employee, gemp.username as g_employee, cus.name as customer,cus.phone_number FROM orders ord inner JOIN employee emp on ord.idr_employee=emp.id JOIN employee gemp on ord.idg_employee=gemp.id Join customer cus on ord.id_customer=cus.id;')
     res.json(rows)
 }
@@ -23,9 +23,10 @@ const getPedidosByname = async (req,res) => {
 
 
 const createPedidos = async(req,res) => {
-    const {name,description,pieces,prize,total,r_date,status,balance,comments,id_customer,idr_employee} = req.body
-    const calculo = (total-balance);
-    const [rows] = await database.query('INSERT INTO orders (name,description,pieces,prize,total,r_date,status,balance,comments,id_customer,idr_employee) VALUES (?,?,?,?,?,?,?,?,?,?,?)',[name,description,pieces,prize,calculo,r_date,status,balance,comments,id_customer,idr_employee])
+    const {name,description,pieces,prize,total,balance,comments,id_customer,idr_employee} = req.body
+    const [rows] = await database.query
+    ('INSERT INTO orders (name,description,pieces,prize,total,balance,comments,id_customer,idr_employee,idg_employee) VALUES (?,?,?,?,?,?,?,?,?,?)',
+                        [name,description,pieces,prize,total,balance,comments,id_customer,idr_employee,idr_employee])
     res.send("Su pedido a sido creado Exitosamente Tenga un buen dia");
 }
 

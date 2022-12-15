@@ -39,6 +39,12 @@ export class OrdersService {
       console.log(response.message)
     })
   }
+  createOrder(payload:any){
+    const headers={
+      "Content-type":"application/json"
+    }
+    return this.http.post<any>(`${APP_URL}api/ordenes/`,payload,{headers})
+  }
   get isLoading(){
     return this.loading;
   }
