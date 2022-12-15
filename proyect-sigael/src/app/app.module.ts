@@ -28,6 +28,7 @@ import { EmployeeNavbarComponent } from './components/employee/employee-navbar/e
 import { NewOrderComponent } from './components/order/new-order/new-order.component';
 import { ListCustomerTallerComponent } from './components/customer/list-customer-taller/list-customer-taller.component';
 import { NewOrderTempComponent } from './components/order/new-order-temp/new-order-temp.component';
+import { UpdateOrderStatusComponent } from './components/order/update-order-status/update-order-status.component';
 const appRoutes:Routes=[
   {path:'admin',component:AdminComponent},
   {path:`admin/listEmployee`, component:ListEmployeeComponent},
@@ -61,6 +62,7 @@ const appRoutes:Routes=[
     NewOrderComponent,
     ListCustomerTallerComponent,
     NewOrderTempComponent,
+    UpdateOrderStatusComponent,
 
 
   ],
