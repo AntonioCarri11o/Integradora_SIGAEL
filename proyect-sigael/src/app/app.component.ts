@@ -10,7 +10,7 @@ export class AppComponent {
   constructor(private router:Router){
 
     if(this.router.url==="/" && localStorage.getItem('role')==="admin"){
-      this.router.navigateByUrl("/admin")
+      this.router.navigateByUrl("/admin/orders")
     }
     if(this.router.url==="/" && localStorage.getItem('role')==="employee"){
       this.router.navigateByUrl("/employee")
