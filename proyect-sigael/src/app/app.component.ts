@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'proyect-sigael';
   constructor(private router:Router){
-    if(localStorage.getItem('token')==="admin"){
+
+    if(this.router.url==="/" && localStorage.getItem('role')==="admin"){
       this.router.navigateByUrl("/admin")
+    }
+    if(this.router.url==="/" && localStorage.getItem('role')==="employee"){
+      this.router.navigateByUrl("/employee")
     }
   }
 }
