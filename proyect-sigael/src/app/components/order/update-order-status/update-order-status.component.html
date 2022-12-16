@@ -8,7 +8,7 @@
     <div class="input-group mb-3">
       <span class="input-group-text">Recibido:</span>
       <div class="form-control" aria-label="Server">{{order.r_date}}</div>
-      <span *ngIf="order.status=='pendiente'" class="input-group-text" style="background-color: #FFDF16; color:white">Pendiente</span>
+      <span *ngIf="order.status=='recibido'" class="input-group-text" style="background-color: #FFDF16;">Pendiente</span>
       <span *ngIf="order.status=='entregado'" class="input-group-text "style="background-color: #4BB9D6; color:white">Entregado:</span>
       <span *ngIf="order.status=='terminado'" class="input-group-text"style="background-color: #6BB374; color:white">Terminado:</span>
       <span *ngIf="order.status=='cancelado'" class="input-group-text "style="background-color: #FF4F4F; color:white">Cancelado:</span>

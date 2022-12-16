@@ -12,7 +12,9 @@ export class UpdateOrderStatusComponent implements OnInit {
   }
 
   updateStatus(status:string,id:number){
-    
+    const idg_employee=5575
+    this.orderService.updateStatus({status,id,idg_employee})
+    this.close();
   }
   close(){
     window.location.reload();
