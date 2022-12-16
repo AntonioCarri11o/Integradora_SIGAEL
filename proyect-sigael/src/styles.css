@@ -29,3 +29,18 @@ tr.trbody:hover{
 .bi-plus-circle{
     font-size: larger;
 }
+.dis{
+    background-color: white;
+}
+.danger{
+    background-color: #FF4F4F;
+}
+.warning{
+    background-color: #FFDF16;
+}
+.success{
+    background-color: #6BB374;
+}
+.primary{
+    background-color: #4BB9D6;
+}

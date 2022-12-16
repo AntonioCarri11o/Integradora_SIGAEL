@@ -18,7 +18,7 @@
     </tr>
     </thead>
     <tbody *ngFor="let order of orders">
-    <tr class="trbody">
+    <tr class="trbody" (click)="updateStatus(order)">
       <th scope="col">{{order.id}}</th>
       <td>{{order.customer}}</td>
       <td>{{order.name}}</td>

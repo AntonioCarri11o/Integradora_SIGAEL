@@ -2,58 +2,48 @@
   <div mat-dialog-title class="col"><h1>Actualizar orden</h1></div>
   <div class="col right"> <button (click)="close()" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button></div>
 </div>
-<form #UpdateOrderForm (submit)="update()">
+
   <div mat-dialog-content>
     <br>
     <div class="input-group mb-3">
       <span class="input-group-text">Recibido:</span>
-      <input disabled type="text" matInput required name="rdate"
-             #r_date="ngModel" [(ngModel)]="order.r_date" class="form-control" aria-label="Server" type="text">
-      <span *ngIf="order.status=='pendiente'" class="input-group-text btn btn-warning">Pendiente</span>
-      <span *ngIf="order.status=='entregado'" class="input-group-text btn btn-primary">Entregado:</span>
-      <span *ngIf="order.status=='terminado'" class="input-group-text btn btn-success">Terminado:</span>
-      <span *ngIf="order.status=='cancelado'" class="input-group-text btn btn-danger">Cancelado:</span>
-      <input disabled type="text" matInput required name="gdate"
-             #g_date="ngModel" [(ngModel)]="order.g_date" class="form-control" aria-label="Server" type="text">
+      <div class="form-control" aria-label="Server">{{order.r_date}}</div>
+      <span *ngIf="order.status=='pendiente'" class="input-group-text" style="background-color: #FFDF16; color:white">Pendiente</span>
+      <span *ngIf="order.status=='entregado'" class="input-group-text "style="background-color: #4BB9D6; color:white">Entregado:</span>
+      <span *ngIf="order.status=='terminado'" class="input-group-text"style="background-color: #6BB374; color:white">Terminado:</span>
+      <span *ngIf="order.status=='cancelado'" class="input-group-text "style="background-color: #FF4F4F; color:white">Cancelado:</span>
+      <div class="form-control">{{order.g_date}}</div>
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Cliente</span>
-      <input type="text" matInput required name="customer"
-             #customer="ngModel" [(ngModel)]="order.customer" class="form-control" aria-label="Server">
+      <div class="form-control" aria-label="Server">{{order.customer}}</div>
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Teléfono</span>
-      <input type="number" matInput required name="phone_number"
-             #phone_number="ngModel" [(ngModel)]="order.phone_number" class="form-control" aria-label="Server">
+      <div class="form-control">{{order.phone_number}}</div>
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Nombre</span>
-      <input type="text" matInput required name="name"
-             #name="ngModel" [(ngModel)]="order.name" class="form-control" aria-label="Server">
-
+      <div class="form-control">{{order.name}}</div>
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Descripcion</span>
-      <textarea matInput required name="description"
-                #description="ngModel" [(ngModel)]="order.description" class="form-control" aria-label="Server">
-            </textarea>
+      <div class="form-control">{{order.description}}</div>
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Comentarios</span>
-      <textarea matInput required name="comments"
-                #comments="ngModel" [(ngModel)]="order.comments" class="form-control" aria-label="Server">
-            </textarea>
+      <div class="form-control">{{order.comments}}</div>
     </div>
 
     <div class="input-group mb-3">
       <span class="input-group-text">Piezas</span>
-      <input type="number" matInput required name="pieces" #pieces="ngModel" [(ngModel)]="order.pieces" class="form-control" aria-label="Server">
+      <div class="form-control">{{order.pieces}}</div>
       <span class="input-group-text">Precio</span>
-      <input type="number" matInput required name="prize" #prize="ngModel" [(ngModel)]="order.prize" class="form-control" aria-label="Server">
+      <div class="form-control">{{order.prize}}</div>
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">Anticipo</span>
-      <input type="text" matInput required name="balance" #balance="ngModel" [(ngModel)]="order.balance" class="form-control" aria-label="Server">
+      <div class="form-control">{{order.balance}}</div>
       <span class="input-group-text">Total</span>
       <div class="form-control" aria-label="Server">{{order.total}}</div>
     </div>
@@ -62,10 +52,10 @@
       <div matInput required name="rEmployee" class="form-control" aria-label="Server">
         {{order.r_employee}}
       </div>
-      <span *ngIf="order.status=='c'" class="input-group-text">Canceló:</span>
-      <span *ngIf="order.status=='p'" class="input-group-text">Pendiente:</span>
-      <span *ngIf="order.status=='e'" class="input-group-text">Entregó:</span>
-      <span *ngIf="order.status=='t'" class="input-group-text">Terminado</span>
+      <span *ngIf="order.status=='cancelado'" class="input-group-text">Canceló:</span>
+      <span *ngIf="order.status=='recibido'" class="input-group-text">Pendiente:</span>
+      <span *ngIf="order.status=='entregado'" class="input-group-text">Entregó:</span>
+      <span *ngIf="order.status=='terminado'" class="input-group-text">Terminado</span>
       <div matInput required name="gEmployee" class="form-control" aria-label="Server">
         {{order.g_employee}}
       </div>
@@ -92,4 +82,4 @@
       <button mat-button class="btn btn-success"  type="submit">Actualizar</button>
     </div>
   </div>
-</form>
+
